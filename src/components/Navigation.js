@@ -14,7 +14,6 @@ class Navigation extends Component {
     this.props.recipeToSelect(recipeId);
   }
   render() {
-    const activeRecipeButton = this.props.activeRecipe;
     return (
       <div className="Navigation">
         <nav className="Navigation__nav">
