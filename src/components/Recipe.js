@@ -7,12 +7,12 @@ class Recipe extends Component {
     const steps = this.props.steps.map((step, i) => <li key={i}>{step}</li>);
     return (
       <div className="Recipe">
-        <h2>{this.props.title}</h2>
-        <h3>Ingredients</h3>
+        <h2 className="Recipe__title">{this.props.title}</h2>
+        <h3 className="Recipe__sub-title">Ingredients</h3>
         <ul>
           {ingredients}
         </ul>
-        <h3>Steps</h3>
+        <h3 className="Recipe__sub-title">Steps</h3>
         <ul>
           {steps}
         </ul>

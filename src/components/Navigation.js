@@ -7,35 +7,48 @@ class Navigation extends Component {
     super(props);
     this.changeRecipe = this.changeRecipe.bind(this);
   }
-  
+
   changeRecipe(e) {
     const buttonId = e.target.id;
     const recipeId = buttonId.split('_')[0];
     this.props.recipeToSelect(recipeId);
   }
   render() {
+    const activeRecipeButton = this.props.activeRecipe;
     return (
       <div className="Navigation">
-        <ul>
-          {
-            this.props.recipes.map((recipe) => 
-              <button 
-                id={recipe.id + '_button'} 
-                key={recipe.id}
-                onClick={this.changeRecipe}
-              >
-                {recipe.title}
-              </button>
-            )
-          }
-        </ul>
+        <nav className="Navigation__nav">
+          <ul className="Navigation__list">
+            {
+              this.props.recipes.map((recipe) => 
+                <li>
+                  <button 
+                    id={recipe.id + '_button'} 
+                    key={recipe.id}
+                    onClick={this.changeRecipe}
+                    className={
+                      recipe.id  === this.props.activeRecipe  ? 
+                        'Navigation__button Navigation__button--active' 
+                        : 
+                        'Navigation__button'
+                    }
+                  >
+                    {recipe.title}
+                  </button>
+                </li>
+              )
+            }
+          </ul>
+        </nav>
       </div>
     );
   }
 }
 
 Navigation.propTypes = {
-  recipes: PropTypes.array.isRequired
+  activeRecipe: PropTypes.string.isRequired,
+  recipes: PropTypes.array.isRequired,
+  recipeToSelect: PropTypes.func.isRequired
 };
 
 export default Navigation;

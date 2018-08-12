@@ -1,0 +1,28 @@
+.Navigation {
+  &__nav {
+    
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    min-height: 100px;
+    justify-content: space-around;
+  }
+
+  &__button {
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    transition: color .1s linear;
+
+    &:hover {
+      color: $color-main;
+    }
+
+    &--active {
+      text-decoration: underline;
+    }
+  }
+}
