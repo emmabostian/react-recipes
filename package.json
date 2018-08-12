@@ -13,6 +13,12 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "sass": "sass --watch src/styles/scss:src/styles/css"
+    "sass": "sass --watch src/styles/scss:src/styles/css",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "homepage": "https://ejbostian.github.io/react-recipes/",
+  "devDependencies": {
+    "gh-pages": "^1.2.0"
   }
 }
