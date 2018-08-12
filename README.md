@@ -1,5 +1,5 @@
 # React Recipe Book
-![Recipe app](https://user-images.githubusercontent.com/7671983/43999393-d2b5e648-9e0b-11e8-8ac5-0dc4d88d39dc.png)
+![Recipe app](https://user-images.githubusercontent.com/7671983/43999466-144583b0-9e0d-11e8-97c3-d4a1d9cec236.png)
 
 ## Introduction
 This is a beginner's tutorial for React. You can read the blog post [here].
