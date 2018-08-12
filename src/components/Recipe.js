@@ -9,13 +9,13 @@ class Recipe extends Component {
       <div className="Recipe">
         <h2 className="Recipe__title">{this.props.title}</h2>
         <h3 className="Recipe__sub-title">Ingredients</h3>
-        <ul>
+        <ul className="Recipe__ingredients">
           {ingredients}
         </ul>
         <h3 className="Recipe__sub-title">Steps</h3>
-        <ul>
+        <ol className="Recipe__steps">
           {steps}
-        </ul>
+        </ol>
       </div>
     );
   }
