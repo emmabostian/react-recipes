@@ -24,7 +24,8 @@ class Recipe extends Component {
 Recipe.propTypes = {
   ingredients: PropTypes.array.isRequired,
   steps: PropTypes.array.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired
 };
 
 export default Recipe;
