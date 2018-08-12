@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
 import Recipe from './Recipe';
+import Navigation from './Navigation';
 
 class App extends Component {
   constructor(props) {
     super(props);
+    this.selectNewRecipe = this.selectNewRecipe.bind(this);
     this.state = {
       recipes: [
         {
@@ -18,7 +20,7 @@ class App extends Component {
             'Spread on cream cheese',
             'Enjoy!'
           ],
-          id: 1
+          id: 'bagel'
         },
         {
           title: 'Pizza',
@@ -32,27 +34,57 @@ class App extends Component {
             'Sprinkle mozarella cheese over sauce',
             'Bake at 350 degrees for 20 minutes'
           ],
-          id: 2
+          id: 'pizza'
         },
-      ]
+      ],
+      selectedRecipe: null
     }
   }
+
+  selectNewRecipe(recipeId) {
+    if(recipeId) {
+      this.setState({
+        ...this.state,
+        selectedRecipe: recipeId
+      });
+    }
+  }
+  
   render() {
+    let recipeToSelect;
+    if(this.state.selectedRecipe) { 
+      const filteredRecipes = this.state.recipes.filter((recipe) => recipe.id === this.state.selectedRecipe);  
+      if(filteredRecipes.length > 0) { 
+        recipeToSelect = filteredRecipes[0];
+      }
+    }
     return (
       <div className="App">
+        <Navigation 
+          recipes={this.state.recipes}
+          recipeToSelect={this.selectNewRecipe}
+        />
         <h1>React Recipe Book</h1>
-        { 
-          this.state.recipes.map((recipe, i) => 
+        {
+          recipeToSelect ? 
             <Recipe
-              title={recipe.title} 
-              ingredients={recipe.ingredients}
-              steps={recipe.steps}
-              key={i}
+            ingredients={recipeToSelect.ingredients}
+            steps={recipeToSelect.steps}
+            title={recipeToSelect.title}
             />
-          ) 
+            :
+            null
         }
       </div>
     );
+  }
+
+  componentDidMount() {
+    const recipeToShow = this.state.recipes[0].id || null;
+    this.setState({
+      ...this.state,
+      selectedRecipe: recipeToShow
+    });
   }
 }
 

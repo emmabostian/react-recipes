@@ -5,7 +5,6 @@ class Recipe extends Component {
   render() {
     const ingredients = this.props.ingredients.map((ingredient, i) => <li key={i}>{ingredient}</li>);
     const steps = this.props.steps.map((step, i) => <li key={i}>{step}</li>);
-    
     return (
       <div className="Recipe">
         <h2>{this.props.title}</h2>
